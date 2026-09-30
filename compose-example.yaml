@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: Patient_booking_system
+    env_file:
+      - .env
+    volumes:
+      - .:/code
+      - anonymous_venv:/code/.venv
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres_db:
+        condition: service_healthy
+
+  postgres_db:
+    image: postgres:16-alpine
+    restart: always
+    container_name: Postgresql_container
+    environment:
+      # Docker Compose reads these dynamically from your local .env file
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_db:/var/lib/postgresql/data
+    healthcheck:
+      # Variables work inside the healthcheck command string too!
+      test: ["CMD-SHELL", "pg_isready -U $${DB_USER} -d $${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_db:
+    driver: local
+  anonymous_venv:

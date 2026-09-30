@@ -1,0 +1,70 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+
+# ==============================================================================
+# 1. Virtual Environments & Project Dependencies (Handled by uv / Docker)
+# ==============================================================================
+.venv/
+venv/
+env/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# ==============================================================================
+# 2. Local Secrets & Credentials (NEVER commit these!)
+# ==============================================================================
+.env
+.env.*
+*.pem
+*.key
+*.cert
+secrets.json
+
+# ==============================================================================
+# 3. Python Cache, Compiled Files, & Metadata
+# ==============================================================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+
+# ==============================================================================
+# 4. Tool-Specific Caches & Reports (Testing, Linting, UV)
+# ==============================================================================
+.uv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ==============================================================================
+# 5. IDE, Text Editors, & System Files
+# ==============================================================================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+documentation.md
+compose.yaml
+.dockerignore

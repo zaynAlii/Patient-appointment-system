@@ -1,0 +1,14 @@
+[project]
+name = "patient-backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "asyncpg>=0.31.0",
+    "fastapi[standard]>=0.141.1",
+    "pwdlib[argon2]>=0.3.1",
+    "pyjwt>=2.15.0",
+    "sqlmodel>=0.0.47",
+    "tzdata>=2026.4",
+]
